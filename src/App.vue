@@ -20,9 +20,12 @@ export default Vue.extend({
     HelloWorld,
   },
   methods: {
-    onClick(): void {
-      (this.$refs.helloWorld as HelloWorldType).appendDate();
-      // (this.$refs.helloWorld as HelloWorldType).appendDate2(); // This line will throw a compilation error
+    onClick(e: Event): void {
+      console.log(e);
+      const helloWorld = this.$refs.helloWorld as HelloWorldType;
+      helloWorld.appendDate();
+      // The following line will throw a compilation error
+      // helloWorld.appendDate2();
     },
   },
 });
